@@ -31,18 +31,22 @@ async def start(client: Client, message: Message):
 
 @app.on_message(filters.command("deploy"))
 async def deploy(client: Client, message: Message):
-    GIT_REPO_URL = message.text.split(" ")[1]
-    CONTAINER_NAME = GIT_REPO_URL.split("/")[-2:]
-    CONTAINER_NAME = CONTAINER_NAME[0] + "_" + CONTAINER_NAME[1]
-    REPO_DIR = "repos/" + CONTAINER_NAME.lower()
+    try:
+        GIT_REPO_URL = message.text.split(" ")[1]
+        CONTAINER_NAME = GIT_REPO_URL.split("/")[-2:]
+        CONTAINER_NAME = CONTAINER_NAME[0] + "_" + CONTAINER_NAME[1]
+        REPO_DIR = "repos/" + CONTAINER_NAME.lower()
 
-    for cmd in DEPLOY_CMD:
-        cmd = (
-            cmd.replace("GIT_REPO_URL", GIT_REPO_URL)
-            .replace("CONTAINER_NAME", CONTAINER_NAME.lower())
-            .replace("REPO_DIR", REPO_DIR)
-        )
-        run_cmd(cmd)
+        for cmd in DEPLOY_CMD:
+            cmd = (
+                cmd.replace("GIT_REPO_URL", GIT_REPO_URL)
+                .replace("CONTAINER_NAME", CONTAINER_NAME.lower())
+                .replace("REPO_DIR", REPO_DIR)
+            )
+            run_cmd(cmd)
+    except Exception as e:
+        await message.reply_text(str(e))
+        rm_cache()
 
 
 @app.on_message(filters.command("update"))
@@ -61,9 +65,12 @@ async def udpate(client: Client, message: Message):
         run_cmd(cmd)
 
 
-try:
-    shutil.rmtree("/repos")
-except:
-    pass
+def rm_cache():
+    try:
+        shutil.rmtree("/repos")
+    except:
+        pass
 
+rm_cache()
+print("Starting bot")
 app.run()
