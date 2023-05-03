@@ -49,13 +49,13 @@ async def deploy(client: Client, message: Message):
 async def udpate(client: Client, message: Message):
     GIT_REPO_URL = message.text.split(" ")[1]
     CONTAINER_NAME = GIT_REPO_URL.split("/")[-2:]
-    CONTAINER_NAME = CONTAINER_NAME[0] + "-" + CONTAINER_NAME[1]
-    REPO_DIR = "/repos/" + CONTAINER_NAME.replace("-", "_").lower()
+    CONTAINER_NAME = CONTAINER_NAME[0] + "_" + CONTAINER_NAME[1]
+    REPO_DIR = "repos/" + CONTAINER_NAME.lower()
 
     for cmd in UPDATE_CMD:
         cmd = (
             cmd.replace("GIT_REPO_URL", GIT_REPO_URL)
-            .replace("CONTAINER_NAME", CONTAINER_NAME)
+            .replace("CONTAINER_NAME", CONTAINER_NAME.lower())
             .replace("REPO_DIR", REPO_DIR)
         )
         run_cmd(cmd)
