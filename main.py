@@ -34,7 +34,7 @@ async def deploy(client: Client, message: Message):
     GIT_REPO_URL = message.text.split(" ")[1]
     CONTAINER_NAME = GIT_REPO_URL.split("/")[-2:]
     CONTAINER_NAME = CONTAINER_NAME[0] + "_" + CONTAINER_NAME[1]
-    REPO_DIR = "repos/" + CONTAINER_NAME..lower()
+    REPO_DIR = "repos/" + CONTAINER_NAME.lower()
 
     for cmd in DEPLOY_CMD:
         cmd = (
