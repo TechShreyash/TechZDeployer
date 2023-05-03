@@ -1,3 +1,4 @@
+import shutil
 import uvloop
 import subprocess
 from pyrogram.client import Client
@@ -19,6 +20,7 @@ with open("cmds/update.txt") as f:
 
 
 def run_cmd(cmd):
+    print(cmd.split(" "))
     subprocess.run(cmd.split(" "))
 
 
@@ -58,5 +60,10 @@ async def udpate(client: Client, message: Message):
         )
         run_cmd(cmd)
 
+
+try:
+    shutil.rmtree("/repos")
+except:
+    pass
 
 app.run()
