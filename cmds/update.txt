@@ -4,4 +4,4 @@ docker kill CONTAINER_NAME
 docker rm CONTAINER_NAME
 docker rmi CONTAINER_NAME
 docker build -t CONTAINER_NAME .
-docker run -d --name CONTAINER_NAME -p 80:80 CONTAINER_NAME
+docker run CONTAINER_NAME
