@@ -1,0 +1,4 @@
+git clone GIT_REPO_URL REPO_DIR
+
+docker build -t CONTAINER_NAME .
+docker run -d --name CONTAINER_NAME -p 80:80 CONTAINER_NAME
