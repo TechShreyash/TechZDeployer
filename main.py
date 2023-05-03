@@ -67,9 +67,9 @@ async def udpate(client: Client, message: Message):
 
 def rm_cache():
     try:
-        shutil.rmtree("/repos")
-    except:
-        pass
+        shutil.rmtree("repos")
+    except Exception as e:
+        print(e)
 
 rm_cache()
 print("Starting bot")
