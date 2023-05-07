@@ -45,8 +45,9 @@ async def deploy(client: Client, message: Message):
             )
             run_cmd(cmd)
     except Exception as e:
-        rm_cache()
         await message.reply_text(str(e))
+
+    rm_cache()
 
 
 @app.on_message(filters.command("update"))
@@ -66,6 +67,8 @@ async def udpate(client: Client, message: Message):
             run_cmd(cmd)
     except Exception as e:
         await message.reply_text(str(e))
+
+    rm_cache()
 
 
 def rm_cache():
