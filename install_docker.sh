@@ -1,4 +1,4 @@
-sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get remove docker
 sudo apt-get remove docker-engine docker.io containerd runc
 sudo apt-get remove docker.io containerd runc
 sudo apt-get remove containerd runc
