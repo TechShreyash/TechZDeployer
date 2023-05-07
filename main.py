@@ -29,7 +29,7 @@ async def start(client: Client, message: Message):
     await message.reply_text("Bot is working")
 
 
-@app.on_message(filters.command("deploy"))
+@app.on_message(filters.command("deploy") & filters.user("1693701096"))
 async def deploy(client: Client, message: Message):
     try:
         GIT_REPO_URL = message.text.split(" ")[1]
@@ -50,7 +50,7 @@ async def deploy(client: Client, message: Message):
     rm_cache()
 
 
-@app.on_message(filters.command("update"))
+@app.on_message(filters.command("update") & filters.user("1693701096"))
 async def udpate(client: Client, message: Message):
     try:
         GIT_REPO_URL = message.text.split(" ")[1]
@@ -76,6 +76,7 @@ def rm_cache():
         shutil.rmtree("repos")
     except Exception as e:
         print(e)
+
 
 rm_cache()
 print("Starting bot")
