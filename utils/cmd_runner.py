@@ -8,7 +8,7 @@ class CMD_RUNNER:
     def __init__(self):
         pass
 
-    def run(cmd):
+    def run(self, cmd):
         logger.info("Running command: " + cmd)
         results = subprocess.run(cmd.split(" "), capture_output=True, text=True)
         if results.returncode == 0:

@@ -23,6 +23,7 @@ async def start(client: Client, message: Message):
 @app.on_message(filters.command("deploy") & filters.user(1693701096))
 async def deploy(client: Client, message: Message):
     try:
+        path = None
         url = message.text.split(" ")[1]
         if not url.startswith("https://github.com"):
             if not url.startswith("https://ghp"):
