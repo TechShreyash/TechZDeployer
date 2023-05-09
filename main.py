@@ -20,7 +20,7 @@ async def start(client: Client, message: Message):
     await message.reply_text("Bot is working")
 
 
-@app.on_message(filters.command("deploy") & filters.user("1693701096"))
+@app.on_message(filters.command("deploy") & filters.user(1693701096))
 async def deploy(client: Client, message: Message):
     try:
         url = message.text.split(" ")[1]
