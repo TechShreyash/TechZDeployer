@@ -16,11 +16,11 @@ class GITHUB(CMD_RUNNER):
 
     def check_dockerfile(self, url):
         if "https://ghp_" in url:
-            ghp_key = url.split("https://ghp_")[1].split("/")[0]
+            ghp_key = url.split("https://ghp_")[1].split("@")[0]
 
         if ghp_key:
             x = url.split("/")
-            headers = {"Authorization": f"token {ghp_key}"}
+            headers = {"Authorization": f"token ghp_{ghp_key}"}
             api_url = f"https://api.github.com/repos/{x[3]}/{x[4]}/contents/Dockerfile"
             res: dict = requests.get(api_url, headers=headers).json()
         else:
