@@ -11,7 +11,7 @@ class GITHUB(CMD_RUNNER):
         path = f"repos/{name}"
 
         CMD = "git clone " + url + f" {path}"
-        self.run(CMD)
+        self._runCmd(CMD)
         return name, path
 
     def check_dockerfile(self, url):
@@ -38,4 +38,4 @@ class GITHUB(CMD_RUNNER):
 
     def delete(self, path):
         CMD = f"rm -rf {path}"
-        self.run(CMD)
+        self._runCmd(CMD)

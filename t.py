@@ -1,4 +1,10 @@
-import time
-print("Hello World")
-time.sleep(10)
-print("Hello World")
+import subprocess
+from time import sleep
+
+with subprocess.Popen(
+    ["python", "timer.py"], stdout=subprocess.PIPE,stderr=subprocess.PIPE
+) as process:
+
+    for i in process.stdout:
+        print(i)
+        

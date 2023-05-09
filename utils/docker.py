@@ -7,8 +7,8 @@ class DOCKER(CMD_RUNNER):
 
     def build(self, name, path: str):
         CMD = f"docker build -t {name} {path}"
-        self.run(CMD)
+        self._runCmd(CMD)
 
-    def run(self, name, cpu=0.1, ram="512m"):
-        CMD = f'docker run -d --cpus="{cpu}" --memory="{ram}" {name}'
-        self.run(CMD)
+    def run(self, name, cpu="0.1", ram="512m"):
+        CMD = f'docker run -d --cpus={cpu} --memory={ram} {name}'
+        self._runCmd(CMD)
