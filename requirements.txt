@@ -1,3 +1,5 @@
+pip
 uvloop
 pyrogram
 tgcrypto
+requests
