@@ -3,7 +3,7 @@ import docker
 from docker import APIClient
 import time
 
-client = APIClient(base_url="unix://var/run/docker.sock")
+client = APIClient()
 
 
 class DOCKER(CMD_RUNNER):
@@ -22,7 +22,8 @@ class DOCKER(CMD_RUNNER):
         for chunk in streamer:
             if "stream" in chunk:
                 for line in chunk["stream"].splitlines():
-                    logs += line.split("->")[0] + "\n\n"
+                    print(line.split("->")[0].replace("\n", "").strip() + "\n\n")
+                    logs += line.split("->")[0].replace("\n", "").strip() + "\n\n"
                     y = time.time()
                     if y - x > 2:
                         await msg.edit(logs[-500:])

@@ -55,19 +55,19 @@ async def deploy(client: Client, message: Message):
             await message.reply_text("Dockerfile not found")
             return
 
-        message = await message.reply_text("Cloning your repo")
+        msg = await message.reply_text("Cloning your repo")
         name, path = GITHUB.clone(url)
-        time.sleep(2)
+        time.sleep(1)
 
         try:
-            await message.edit_text("Building your app")
+            await msg.edit_text("Building your app")
         except:
             pass
-        await DOCKER.build(name, path, message)
+        await DOCKER.build(name, path, msg)
         time.sleep(2)
 
         try:
-            await message.edit_text("Starting your app")
+            await msg.edit_text("Starting your app")
         except:
             pass
         DOCKER.run(name)
@@ -75,7 +75,7 @@ async def deploy(client: Client, message: Message):
         time.sleep(2)
         GITHUB.delete(path)
 
-        await message.edit_text("Your app has been deployed succesfully")
+        await msg.edit_text("Your app has been deployed succesfully")
 
     except Exception as e:
         await message.reply_text(str(e))
@@ -85,11 +85,8 @@ async def deploy(client: Client, message: Message):
 
 @app.on_message(filters.command("removeall") & filters.user(1693701096))
 async def removeall(_, message):
-    CMD_RUNNER._runCmd("docker stop $(docker ps -aq)")
-    CMD_RUNNER._runCmd("docker rm $(docker ps -aq)")
-    CMD_RUNNER._runCmd("docker container prune")
-    CMD_RUNNER._runCmd("docker rmi $(docker images -q)")
-    CMD_RUNNER._runCmd("docker image prune")
+    CMD_RUNNER._runCmd("bash rm_docker.sh")
+    await message.reply_text("Removed All Images And Containers")
 
 
 def rm_cache():

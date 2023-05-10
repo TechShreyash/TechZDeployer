@@ -71,3 +71,25 @@ UnboundLocalError: local variable 'path' referenced before assignment
 [10-May-23 03:55:46 - INFO] - CMD_RUNNER - Command executed successfully
 [10-May-23 03:55:46 - INFO] - CMD_RUNNER - Running command: rm -rf repos/techshreyash_techzindex
 [10-May-23 03:55:46 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 04:34:28 - INFO] - CMD_RUNNER - Running command: docker stop $(docker ps -aq)
+[10-May-23 04:34:28 - ERROR] - CMD_RUNNER - Command failed to execute
+[10-May-23 04:35:42 - INFO] - CMD_RUNNER - Running command: docker stop $(docker ps -aq)
+[10-May-23 04:35:42 - ERROR] - CMD_RUNNER - Command failed to execute
+[10-May-23 04:39:28 - INFO] - CMD_RUNNER - Running command: bash rm_docker.sh
+[10-May-23 04:39:28 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 04:40:19 - INFO] - CMD_RUNNER - Running command: git clone https://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@github.com/TechShreyash/TechZIndex repos/techshreyash_techzindex
+[10-May-23 04:40:20 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 04:40:38 - INFO] - CMD_RUNNER - Running command: bash rm_docker.sh
+[10-May-23 04:40:41 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 04:40:44 - INFO] - CMD_RUNNER - Running command: docker run -d --cpus=0.1 --memory=512m techshreyash_techzindex
+[10-May-23 04:40:47 - ERROR] - CMD_RUNNER - Command failed to execute
+[10-May-23 04:42:48 - INFO] - CMD_RUNNER - Running command: git clone https://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@github.com/TechShreyash/TechZIndex repos/techshreyash_techzindex
+[10-May-23 04:42:49 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 04:43:05 - INFO] - CMD_RUNNER - Running command: docker run -d --cpus=0.1 --memory=512m techshreyash_techzindex
+[10-May-23 04:43:06 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 04:45:50 - INFO] - CMD_RUNNER - Running command: git clone https://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@github.com/TechShreyash/TechZIndex repos/techshreyash_techzindex
+[10-May-23 04:45:51 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 04:45:54 - INFO] - CMD_RUNNER - Running command: docker run -d --cpus=0.1 --memory=512m techshreyash_techzindex
+[10-May-23 04:45:54 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 04:45:57 - INFO] - CMD_RUNNER - Running command: rm -rf repos/techshreyash_techzindex
+[10-May-23 04:45:57 - INFO] - CMD_RUNNER - Command executed successfully
