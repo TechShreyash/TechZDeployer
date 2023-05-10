@@ -4,7 +4,7 @@ import uvloop
 from pyrogram.client import Client
 from pyrogram.types import Message
 from pyrogram import filters
-from utils import GITHUB, DOCKER
+from utils import GITHUB, DOCKER, inc_user, repo_count, CMD_RUNNER
 import time
 
 uvloop.install()
@@ -16,14 +16,34 @@ app = Client(
 )
 
 
-@app.on_message(filters.command("start"))
+@app.on_message(filters.command(["start", "help"]) & filters.private)
 async def start(client: Client, message: Message):
-    await message.reply_text("Bot is working")
+    await message.reply_text(
+        """**💠 TechZDeployer - Deploy Your Apps For Free**
+
+🧲 **Two Apps For Free**
+
+- 0.1 core cpu
+- 512 mb ram
+
+♻️ **How To Use?**
+
+**1.** Get github link of your repo
+**2.** Your repo must contain a valid docker file
+**3.** Send /deploy <repo-link> to Deploy your app
+**4.** Done. Your app will get deployed on our server
+"""
+    )
 
 
-@app.on_message(filters.command("deploy") & filters.user(1693701096))
+@app.on_message(filters.command("deploy") & filters.private)
 async def deploy(client: Client, message: Message):
     try:
+        if repo_count(message.from_user.id) >= 2:
+            return await message.reply_text(
+                "You already have deployed your two free apps\n\nContact @TechZBots_Support for more"
+            )
+
         path = None
         url = message.text.split(" ")[1]
         if not url.startswith("https://github.com"):
@@ -51,6 +71,7 @@ async def deploy(client: Client, message: Message):
         except:
             pass
         DOCKER.run(name)
+        inc_user(message.from_user.id, name, url)
         time.sleep(2)
         GITHUB.delete(path)
 
@@ -60,6 +81,15 @@ async def deploy(client: Client, message: Message):
         await message.reply_text(str(e))
         if path:
             GITHUB.delete(path)
+
+
+@app.on_message(filters.command("removeall") & filters.user(1693701096))
+async def removeall(_, message):
+    CMD_RUNNER._runCmd("docker stop $(docker ps -aq)")
+    CMD_RUNNER._runCmd("docker rm $(docker ps -aq)")
+    CMD_RUNNER._runCmd("docker container prune")
+    CMD_RUNNER._runCmd("docker rmi $(docker images -q)")
+    CMD_RUNNER._runCmd("docker image prune")
 
 
 def rm_cache():

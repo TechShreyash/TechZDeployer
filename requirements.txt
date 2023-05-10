@@ -4,3 +4,5 @@ pyrogram
 tgcrypto
 requests
 docker
+pymongo
+dnspython
