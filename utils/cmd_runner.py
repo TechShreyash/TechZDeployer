@@ -1,5 +1,6 @@
 import subprocess
 from utils.logger import LOGGER
+
 logger = LOGGER("CMD_RUNNER")
 
 
@@ -9,8 +10,8 @@ class CMD_RUNNER:
 
     def _runCmd(self, cmd):
         logger.info("Running command: " + cmd)
-        with subprocess.Popen(cmd.split(" "), stderr=subprocess.PIPE,stdout=subprocess.PIPE) as process:
-            
+        results = subprocess.run(cmd.split(" "), capture_output=True, text=True)
+
         if results.returncode == 0:
             logger.info("Command executed successfully")
             return results.stdout

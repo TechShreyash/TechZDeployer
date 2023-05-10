@@ -1,10 +1,9 @@
 import subprocess
-from time import sleep
+import sys
 
-with subprocess.Popen(
-    ["python", "timer.py"], stdout=subprocess.PIPE,stderr=subprocess.PIPE
-) as process:
-
-    for i in process.stdout:
-        print(i)
-        
+with open("test.log", "wb") as f:
+    process = subprocess.Popen(["python3", "timer.py"], stdout=subprocess.PIPE)
+    for c in iter(lambda: process.stdout.read(1), b""):
+        sys.stdout.buffer.write(c)
+        # f.buffer.write(c)
+        print(c)

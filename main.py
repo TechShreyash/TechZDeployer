@@ -5,6 +5,7 @@ from pyrogram.client import Client
 from pyrogram.types import Message
 from pyrogram import filters
 from utils import GITHUB, DOCKER
+import time
 
 uvloop.install()
 app = Client(
@@ -36,18 +37,21 @@ async def deploy(client: Client, message: Message):
 
         message = await message.reply_text("Cloning your repo")
         name, path = GITHUB.clone(url)
+        time.sleep(2)
 
         try:
             await message.edit_text("Building your app")
         except:
             pass
-        DOCKER.build(name, path)
+        await DOCKER.build(name, path, message)
+        time.sleep(2)
 
         try:
             await message.edit_text("Starting your app")
         except:
             pass
         DOCKER.run(name)
+        time.sleep(2)
         GITHUB.delete(path)
 
         await message.edit_text("Your app has been deployed succesfully")

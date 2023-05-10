@@ -63,3 +63,11 @@ UnboundLocalError: local variable 'path' referenced before assignment
 [09-May-23 16:18:38 - INFO] - CMD_RUNNER - Command executed successfully
 [09-May-23 16:18:38 - INFO] - CMD_RUNNER - Running command: rm -rf repos/techshreyash_techzindex
 [09-May-23 16:18:38 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 03:54:45 - INFO] - CMD_RUNNER - Running command: git clone https://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@github.com/TechShreyash/TechZIndex repos/techshreyash_techzindex
+[10-May-23 03:54:46 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 03:55:44 - INFO] - CMD_RUNNER - Running command: git clone https://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@github.com/TechShreyash/TechZIndex repos/techshreyash_techzindex
+[10-May-23 03:55:45 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 03:55:45 - INFO] - CMD_RUNNER - Running command: docker run -d --cpus=0.1 --memory=512m techshreyash_techzindex
+[10-May-23 03:55:46 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 03:55:46 - INFO] - CMD_RUNNER - Running command: rm -rf repos/techshreyash_techzindex
+[10-May-23 03:55:46 - INFO] - CMD_RUNNER - Command executed successfully
