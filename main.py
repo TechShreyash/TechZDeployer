@@ -22,7 +22,6 @@ async def start(client: Client, message: Message):
         """**💠 TechZDeployer - Deploy Your Apps For Free**
 
 🧲 **Two Apps For Free**
-
 - 0.1 core cpu
 - 512 mb ram
 
@@ -41,33 +40,33 @@ async def deploy(client: Client, message: Message):
     try:
         if repo_count(message.from_user.id) >= 2:
             return await message.reply_text(
-                "You already have deployed your two free apps\n\nContact @TechZBots_Support for more"
+                "❌ **You already have deployed your two free apps**\n\nContact @TechZBots_Support for more"
             )
 
         path = None
         url = message.text.split(" ")[1]
         if not url.startswith("https://github.com"):
             if not url.startswith("https://ghp"):
-                await message.reply_text("Not a valid github url")
+                await message.reply_text("❗️ **Not a valid github url**")
                 return
 
         if not GITHUB.check_dockerfile(url):
-            await message.reply_text("Dockerfile not found")
+            await message.reply_text("❗️ **Dockerfile not found**")
             return
 
-        msg = await message.reply_text("Cloning your repo")
+        msg = await message.reply_text("🔄 **Cloning your repo**")
         name, path = GITHUB.clone(url)
         time.sleep(1)
 
         try:
-            await msg.edit_text("Building your app")
+            await msg.edit_text("🏗 **Building your app**")
         except:
             pass
         await DOCKER.build(name, path, msg)
         time.sleep(2)
 
         try:
-            await msg.edit_text("Starting your app")
+            await msg.edit_text("🏃 **Starting your app**")
         except:
             pass
         DOCKER.run(name)
@@ -75,7 +74,7 @@ async def deploy(client: Client, message: Message):
         time.sleep(2)
         GITHUB.delete(path)
 
-        await msg.edit_text("Your app has been deployed succesfully")
+        await msg.edit_text("✨ **Your app has been deployed succesfully**")
 
     except Exception as e:
         await message.reply_text(str(e))

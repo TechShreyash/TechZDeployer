@@ -16,19 +16,22 @@ class DOCKER(CMD_RUNNER):
 
         streamer = client.build(decode=True, path=path, tag=name)
 
-        logs = ""
+        logs = "🏗 **Building your app**\n\n"
         x = time.time()
 
         for chunk in streamer:
             if "stream" in chunk:
                 for line in chunk["stream"].splitlines():
-                    if '->' in line:
-                        print(line.split("->")[0].replace("\n", "").strip() + "\n\n")
-                        logs += line.split("->")[0].replace("\n", "").strip() + "\n\n"
+                    if "Step " in line:
+                        logs += line.replace("\n", "").strip() + "\n"
                         y = time.time()
-                        if y - x > 2:
-                            await msg.edit(logs[-500:])
-                            x = y
+                        if y - x > 1:
+                            if len(logs) > 0:
+                                try:
+                                    await msg.edit(logs[-500:])
+                                    x = y
+                                except:
+                                    pass
 
     def run(self, name, cpu="0.1", ram="512m"):
         CMD = f"docker run -d --cpus={cpu} --memory={ram} {name}"

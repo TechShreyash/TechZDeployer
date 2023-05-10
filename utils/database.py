@@ -17,4 +17,4 @@ def repo_count(user):
     user = db.find_one({"user": user})
     if not user:
         return 0
-    return user.get("repos", 0)
+    return user.get("count", 0)

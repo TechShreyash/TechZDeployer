@@ -1,6 +1,0 @@
-git clone GIT_REPO_URL REPO_DIR
-docker kill CONTAINER_NAME
-docker rm CONTAINER_NAME
-docker rmi CONTAINER_NAME
-docker build -t CONTAINER_NAME REPO_DIR
-docker run -d --name CONTAINER_NAME -p 80:80 CONTAINER_NAME
