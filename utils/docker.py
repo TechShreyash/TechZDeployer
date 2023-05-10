@@ -22,12 +22,13 @@ class DOCKER(CMD_RUNNER):
         for chunk in streamer:
             if "stream" in chunk:
                 for line in chunk["stream"].splitlines():
-                    print(line.split("->")[0].replace("\n", "").strip() + "\n\n")
-                    logs += line.split("->")[0].replace("\n", "").strip() + "\n\n"
-                    y = time.time()
-                    if y - x > 2:
-                        await msg.edit(logs[-500:])
-                        x = y
+                    if '->' in line:
+                        print(line.split("->")[0].replace("\n", "").strip() + "\n\n")
+                        logs += line.split("->")[0].replace("\n", "").strip() + "\n\n"
+                        y = time.time()
+                        if y - x > 2:
+                            await msg.edit(logs[-500:])
+                            x = y
 
     def run(self, name, cpu="0.1", ram="512m"):
         CMD = f"docker run -d --cpus={cpu} --memory={ram} {name}"

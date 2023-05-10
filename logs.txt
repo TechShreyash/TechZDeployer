@@ -93,3 +93,13 @@ UnboundLocalError: local variable 'path' referenced before assignment
 [10-May-23 04:45:54 - INFO] - CMD_RUNNER - Command executed successfully
 [10-May-23 04:45:57 - INFO] - CMD_RUNNER - Running command: rm -rf repos/techshreyash_techzindex
 [10-May-23 04:45:57 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 06:40:54 - INFO] - root - Stop signal received (SIGINT). Exiting...
+[10-May-23 09:25:22 - INFO] - CMD_RUNNER - Running command: bash rm_docker.sh
+[10-May-23 09:25:25 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 09:26:25 - INFO] - CMD_RUNNER - Running command: git clone https://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@github.com/s10c1548-shreyash/AutoAnimeBot repos/s10c1548-shreyash_autoanimebot
+[10-May-23 09:26:26 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 09:26:59 - INFO] - CMD_RUNNER - Running command: docker run -d --cpus=0.1 --memory=512m s10c1548-shreyash_autoanimebot
+[10-May-23 09:27:00 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 09:27:02 - INFO] - CMD_RUNNER - Running command: rm -rf repos/s10c1548-shreyash_autoanimebot
+[10-May-23 09:27:02 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 09:43:29 - INFO] - root - Stop signal received (SIGINT). Exiting...
