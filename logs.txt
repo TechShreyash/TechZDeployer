@@ -1,0 +1,18 @@
+[10-May-23 16:15:52 - INFO] - CMD_RUNNER - Running command: bash rm_docker.sh
+[10-May-23 16:16:04 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 16:16:32 - INFO] - CMD_RUNNER - Running command: git clone https://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@github.com/s10c1548-shreyash/AutoAnimeBot repos/s10c1548-shreyash_autoanimebot
+[10-May-23 16:16:33 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 16:17:06 - INFO] - CMD_RUNNER - Running command: docker run -d --cpus=0.1 --memory=512m s10c1548-shreyash_autoanimebot
+[10-May-23 16:17:06 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 16:17:09 - INFO] - CMD_RUNNER - Running command: rm -rf repos/s10c1548-shreyash_autoanimebot
+[10-May-23 16:17:09 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 16:18:30 - INFO] - CMD_RUNNER - Running command: bash rm_docker.sh
+[10-May-23 16:18:41 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 16:20:04 - INFO] - root - Stop signal received (SIGINT). Exiting...
+[10-May-23 16:23:28 - INFO] - CMD_RUNNER - Running command: git clone https://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@github.com/s10c1548-shreyash/AutoAnimeBot repos/s10c1548-shreyash_autoanimebot
+[10-May-23 16:23:29 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 16:24:01 - INFO] - CMD_RUNNER - Running command: docker run -d --cpus=0.1 --memory=512m s10c1548-shreyash_autoanimebot
+[10-May-23 16:24:02 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 16:24:04 - INFO] - CMD_RUNNER - Running command: rm -rf repos/s10c1548-shreyash_autoanimebot
+[10-May-23 16:24:04 - INFO] - CMD_RUNNER - Command executed successfully
+[10-May-23 16:26:32 - INFO] - root - Stop signal received (SIGINT). Exiting...

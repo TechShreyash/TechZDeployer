@@ -63,7 +63,7 @@ async def deploy(client: Client, message: Message):
         except:
             pass
         await DOCKER.build(name, path, msg)
-        time.sleep(2)
+        time.sleep(3)
 
         try:
             await msg.edit_text("🏃 **Starting your app**")
